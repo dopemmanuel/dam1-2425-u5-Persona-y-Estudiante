@@ -1,5 +1,9 @@
 package com.dam1.eju5.src
 
+
+import com.dam1.eju5.src.clases.Estudiante
+import com.dam1.eju5.src.clases.Persona
+
 /**
 Ejercicio 8: Persona y Estudiante
 Clases y Objetos Básicos:
@@ -39,42 +43,18 @@ Objetivo: Aprender a crear clases y objetos, a utilizar métodos y propiedades, 
 encapsulamiento, a utilizar la herencia y el polimorfismo, y a controlar las excepciones.
  * */
 
-open class Persona( open val nombre:String, open var fechaNac: Int, open var anioActual: Int){
 
-    init{
-        require(fechaNac in 1900..anioActual) { IllegalArgumentException("ERR0R: Se supera el limite de epoca.") }
-        require(nombre.isNotEmpty()){IllegalArgumentException("ERROR: El campo del nombre no debe estar vacio.")}
-    }
-
-    fun cumple(): String {
-        return "$nombre ha cumplido ${fechaNac + 1}"
-    }
-
-    fun actividad(){
-
-    }
-
-    open fun info(): String {
-        return "Persona(Nombre = $nombre, Edad = $fechaNac)"
-    }
-}
-
-class Estudiante(nombre:String, fechaNac: Int, anioActual: Int, val carrera: String): Persona (nombre, fechaNac, anioActual){
-
-    override fun info(): String {
-        return "Persona(Nombre = $nombre, Edad = $fechaNac, Carrera = $carrera)"
-    }
-}
 
 fun main() {
-    val persona = Persona("Emmanuel1", 2002, 2024)
-    val estudiante = Estudiante("Emmanuel2", 2002, 2049, "Informatica")
+    val persona = Persona("Emmanuel1", 2002)
+    val estudiante = Estudiante("Emmanuel2", 2002, "Informatica")
+
 
     println(persona.info())
     println(persona.cumple())
+    println(persona.actividad())
     println(estudiante.info())
     println(estudiante.cumple())
-
-
+    println(estudiante.actividad())
 
 }
